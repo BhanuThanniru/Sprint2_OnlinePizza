@@ -1,0 +1,22 @@
+<div class="container-fluid">
+<!-- <script>
+    for(let c of this.cart){
+    console.log(c.pizzaSize)
+}
+</script> -->
+<div *ngFor="let c of cart3">
+    <div>this is cart3</div>
+    <div>{{cart3}}</div>
+    <div>{{c[0].pizzaSize}}</div>
+</div>
+    
+    <p>This is for loop of cart</p>
+    <!-- <p>{{c[0].pizzaSize}}</p> -->
+    <!-- {{p.costList[1].pizzaSize}} -->
+    <!-- <div > 
+        {{cost.pizzaSize}},{{cost.pizzaId}},{{cost.quantity}}
+   </div> -->
+</div>
+<button type="button" name="transactionMode" id="transactionMode" formControlName = "transactionMode">CASH</button>
+<button type="button" name="transactionMode" id="transactionMode" formControlName = "transactionMode">ONLINE</button>
+<button type="button" name="transactionMode" id="transactionMode" formControlName = "transactionMode">CARD</button>
