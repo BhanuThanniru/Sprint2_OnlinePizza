@@ -1,6 +1,8 @@
-export class Cart{
+import { Pizza } from "../pizza/Pizza";
+
+export interface Cart{
     //cartId:number=0;
-    pizzaId:number=0;
-    pizzaSize:string='';
-    quantity:number=0;
+    pizzaId:number;
+    pizzaSize:string;
+    quantity:number;
 }

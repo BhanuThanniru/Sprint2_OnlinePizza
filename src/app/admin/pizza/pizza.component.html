@@ -6,7 +6,7 @@
         <tr *ngFor="let p of pizza">  
             <td><a [routerLink] = "['/pizzas/',p.id]">{{p.name}}</a></td>
            <td ngClass="td1"> <button (click)="onEdit(p)">Edit</button></td>
-            <td ngClass="td1"><button (click)="onDelete(p)">Delete</button></td> 
+            <!-- <td ngClass="td1"><button (click)="onDelete(p)">Delete</button></td>  -->
            
         </tr>
        </table>

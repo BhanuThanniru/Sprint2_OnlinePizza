@@ -1,7 +1,14 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Cart } from '../cart/cart';
 import { Coupon } from '../coupons/Coupon';
-
+import { Customer } from '../customer/Customer'
+import { CartService } from '../service/cart.service';
+import { CustomerService } from '../service/customer.service';
+import { OrderService } from '../service/order.service';
+import { Order } from './Order';
+import { TransactionMode } from './TransactionMode';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -9,33 +16,61 @@ import { Coupon } from '../coupons/Coupon';
 })
 export class OrderComponent implements OnInit {
 
-  cart:Array<Cart> | null | string | undefined
-  cart1!:Array<Cart>
-  cart2!:Array<any>
-  cart3!:any
-  customerId!:string
+  cartItems :Cart[]=[]
+  cart1!:Array<any>
+  customerEmail!:any
   coupon!:Coupon
-  constructor() { }
+  transactionMode!:TransactionMode
+  customerId !: number
+  constructor(private service : CartService, private orderService : OrderService, private customerService : CustomerService,private router: Router) { }
 
+  customer!:Customer
+  
+ 
+  
   ngOnInit(): void {
+    this.customerEmail = sessionStorage.getItem('email')
+    console.log("retreiving customer details")
+    console.log(this.customerEmail)
+    this.customerService.getCustomerByMail(this.customerEmail).subscribe(
+      (data) => {
+        console.log(data)
+        this.customerId=data.id;
+        this.customer = data;
+        //console.log("data in order " +this.customerId)
+      },
+      (err) => console.log(err)
+    )
+   
+    this.cartItems = this.service.getCartItems()
 
-    // this.cart= <Cart><unknown>(JSON.parse(localStorage.getItem('cartItems')))
-    // this.cart1 = <Cart><unknown>(this.cart)
-    // console.log(this.cart1);
-    // for(let c of this.cart1){
-    //  this.cart2.push(Object(c).pizzaId,c.pizzaSize, c.quantity)
-     
-    // }
+    console.log("in order component ")
+    console.log(this.cartItems)
+    for(let cart of this.cartItems){
+    console.log(cart.pizzaId)
+    }
+    console.log("cart is displayed")
 
-    // let jsonObject: any = JSON.parse(cart);
-    // this.cart3 = <Cart>jsonObject;
-    // console.log(this.cart3)
-    console.log("cart2 is" +this.cart2)
-    this.cart2 = this.cart1;
-    //console.log("cart 2 is: " +this.cart2)
-    this.customerId = String(sessionStorage.getItem('email'))
-    console.log(this.customerId)
+    
+    
+  }
+  onSubmit(){
+    let order : Order={
+      id:0,
+      customer : this.customer,
+      transactionMode : this.transactionMode,
+      cart : this.cartItems,
+      coupon : this.coupon
+    }
+    console.log(this.transactionMode)
+    console.log(order)
 
+    this.orderService.bookOrder(order).subscribe(
+      (data) => {
+        console.log(data)
+      }
+    )
+   
   }
 
 }

@@ -1,4 +1,26 @@
 <!-- <div *ngIf="cartItems.length === 0" class="alert alert-info">No items added</div>
 
-<div *ngIF = "cartItems.length > 0"></div> -->
+<div *ngIF = "cartItems.length > 0">  -->
+<!--bootstrap list class-->
+<div class="container">
+<div *ngFor = "let cart of cartItems">
+<div class="card" style="width: 18rem;">
+    <!-- <img class="card-img-top" src="{{cart.pizza.imageUrl}}" alt="Card image cap"> -->
+    <div class="card-body">
+      <!-- <h4 class="card-title"> <strong>{{cart.pizza.name}}</strong></h4> -->
+      <span>Pizza size selected
+      <p class="card-text">{{cart.pizzaSize}}</span>
+       <span> Quantity selected: {{cart.quantity}}</span>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+    </div>
+  </div>
+</div>
+</div>
+    <!-- <div class="card">
 
+    {{cart.pizza.id}},
+    {{cart.pizza.name}},
+    {{cart.pizzaSize}},
+    {{cart.quantity}} -->
+    
+<button id="button" type="button" (click)='placeOrder()'>Place Order</button>

@@ -1,15 +1,16 @@
 import { Cart } from "../cart/cart";
 import { Coupon } from "../coupon";
 import { Customer } from "../customer";
+import { TransactionMode } from "./TransactionMode";
 
 export interface Order{
-    // id:number;
+     id:number;
     // type:string;
     // description:string;
     customer:Customer;
-    transactionMode:string;
+    transactionMode:TransactionMode;
     cart:Cart[];
-    coupan : Coupon;
+    coupon : Coupon;
     //totalCost:number;
 
 }

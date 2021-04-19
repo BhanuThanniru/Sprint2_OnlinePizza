@@ -4,5 +4,4 @@ export interface Coupon{
     type:string;
     description:string;
     priceDiscount:number;
-    expiryDate:Date;
 }

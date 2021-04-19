@@ -25,7 +25,6 @@ import { AdminCouponListComponent } from './admin/coupon/coupon-list1.component'
 import { AddPizzaComponent } from './admin/pizza/add-pizza.component';
 import { UpdatePizzaComponent } from './admin/pizza/update-pizza.component';
 import { AdminPizzaListComponent } from './admin/pizza/pizza.component';
-import { PizzaItemComponent } from './pizza/pizza-item.component';
 import { MainPizzaComponent } from './admin/pizza/pizza-main.component';
 import { PizzaByidComponent } from './admin/pizza/pizza-byid.component';
 
@@ -48,7 +47,6 @@ import { PizzaByidComponent } from './admin/pizza/pizza-byid.component';
     AddPizzaComponent,
     UpdatePizzaComponent,
     AdminPizzaListComponent,
-    PizzaItemComponent,
     MainPizzaComponent,
     CartComponent,
     PizzaByidComponent,

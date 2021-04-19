@@ -6,6 +6,7 @@ import { AddPizzaComponent } from './admin/pizza/add-pizza.component';
 import { PizzaByidComponent } from './admin/pizza/pizza-byid.component';
 import { AdminPizzaListComponent } from './admin/pizza/pizza.component';
 import { UpdatePizzaComponent } from './admin/pizza/update-pizza.component';
+import { CartComponent } from './cart/cart.component';
 import { AddCouponComponent } from './coupons/add-coupon.component';
 import { CouponListComponent } from './coupons/coupon-list.component';
 import { CouponComponent } from './coupons/coupon.component';
@@ -19,6 +20,7 @@ import { ListPizzaComponent } from './pizza/list-pizza.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { AuthGuardService1 } from './service/auth-guard1.service';
+import { CartService } from './service/cart.service';
 
 
 const routes: Routes = [
@@ -42,7 +44,9 @@ const routes: Routes = [
   { path: 'admin/add-pizza',component:AddPizzaComponent},
   { path: 'admin/edit-pizza/:id',component:UpdatePizzaComponent},
   { path : 'pizzas/:id',component: PizzaByidComponent},
-  { path : 'orders', component: OrderComponent}
+  { path : 'orders', component: OrderComponent},
+  { path : 'cart', component : CartComponent}
+  
 
 ];
 

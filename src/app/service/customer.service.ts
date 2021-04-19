@@ -25,6 +25,7 @@ export class CustomerService{
     }
 
     getCustomerByMail(email:string) : Observable<Customer>{
+        console.log(this.http.get<Customer>(this.backendUrl+'customers/email/'+email))
         return this.http.get<Customer>(this.backendUrl+'customers/email/'+email);
     }
 }

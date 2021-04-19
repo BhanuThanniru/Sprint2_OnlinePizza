@@ -1,22 +1,17 @@
 <div class="container-fluid">
-<!-- <script>
-    for(let c of this.cart){
-    console.log(c.pizzaSize)
-}
-</script> -->
-<div *ngFor="let c of cart3">
-    <div>this is cart3</div>
-    <div>{{cart3}}</div>
-    <div>{{c[0].pizzaSize}}</div>
+<form (submit)="onSubmit()">
+<div>
+    <input type="radio"
+     [(ngModel)]="transactionMode"
+      value="CASH" 
+      name="transactionMode" 
+      id="transactionMode">CASH
 </div>
-    
-    <p>This is for loop of cart</p>
-    <!-- <p>{{c[0].pizzaSize}}</p> -->
-    <!-- {{p.costList[1].pizzaSize}} -->
-    <!-- <div > 
-        {{cost.pizzaSize}},{{cost.pizzaId}},{{cost.quantity}}
-   </div> -->
+<div>
+<input  [(ngModel)]="transactionMode" type="radio" value="CARD"  name="transactionMode" id="transactionMode">CARD
 </div>
-<button type="button" name="transactionMode" id="transactionMode" formControlName = "transactionMode">CASH</button>
-<button type="button" name="transactionMode" id="transactionMode" formControlName = "transactionMode">ONLINE</button>
-<button type="button" name="transactionMode" id="transactionMode" formControlName = "transactionMode">CARD</button>
+<div>
+<input  [(ngModel)]="transactionMode" type="radio" value="ONLINE" name="transactionMode" id="transactionMode">ONLINE
+</div>
+<input type="submit" name="placeOrder" value="Place Order">
+</form></div>
